@@ -14,18 +14,21 @@ return {
         languages = {
           php_only = '// %s',
           php = '// %s',
-          blade = {
-            __default = '{{-- %s --}}',
-            html = '{{-- %s --}}',
-            blade = '{{-- %s --}}',
-            php = '// %s',
-            php_only = '// %s',
-          }
+          -- blade = '{{-- %s --}}',
+          -- blade = {
+          --   __default = '{{-- %s --}}',
+          --   html = '{{-- %s --}}',
+          --   blade = '{{-- %s --}}',
+          --   php = '// %s',
+          --   php_only = '// %s',
+          -- }
         },
         custom_calculation = function (node, language_tree)
-          -- print(vim.bo.filetype)
-          -- print(language_tree._lang)
-          -- print('----')
+          -- print(language_tree:lang())
+          -- print(node:type())
+          print(vim.bo.filetype)
+          print(language_tree._lang)
+          print('----')
           if vim.bo.filetype == 'blade' then
             if language_tree._lang == 'html' then
               return '{{-- %s --}}'
